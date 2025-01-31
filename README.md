@@ -1,7 +1,5 @@
 # Shopify Crypto Wallet Integration
 
-[More details here](https://forum.developerdao.com/t/shopify-metamask-app-idea/636)
-
 ## Project Components
 
 1. **NextJS Frontend:**
@@ -55,7 +53,5 @@ Example: [Theme App Extension](https://github.com/Shopify/theme-extension-gettin
 3. Run `shopify extension push` and follow instructions to install the extension on the Shopify theme.
 
 Demo: [Loom Video](https://www.loom.com/share/9c21c12fc567417e9f3e6e910b65f874)
-
-Demo Shopify Page: [sergey-metamask-test.myshopify.com](https://sergey-metamask-test.myshopify.com), store password: `rubado`.
 
 WIP: [Loom Video](https://www.loom.com/share/9cb9caccd1494387937ae
