@@ -1,55 +1,61 @@
-# Shopify MetaMask (or any crypto wallet?) Integration
+# Shopify Crypto Wallet Integration
 
 [More details here](https://forum.developerdao.com/t/shopify-metamask-app-idea/636)
 
-## Project will consist of 3 parts:
+## Project Components
 
-- NextJS frontend:
-  - An admin dashboard where shop owner configures which contract holder is eligible for discounts/custom merch
-- NextJS backend:
-  - Server that stores the data
-  - Dynamically create promo codes for discounts using Shopify API (?) - need to do some research on that
-- [A widget](https://shopify.dev/apps/online-store/theme-app-extensions/extensions-framework#app-embed-blocks) that
-  - connects with [crypto wallet](https://twitter.com/developer_dao/status/1466080091327369225)
-  - talks to server to verify if user is eligible for discounts/custom merch
-  - fetches promo code from server and applies it to the user's cart
+1. **NextJS Frontend:**
+   - Admin dashboard for shop owner to configure eligible contract holders for discounts/custom merch.
+
+2. **NextJS Backend:**
+   - Server to store data.
+   - Dynamically create promo codes for discounts using Shopify API (research needed).
+
+3. **Widget:**
+   - Connects with [crypto wallet](https://twitter.com/developer_dao/status/1466080091327369225).
+   - Verifies user eligibility for discounts/custom merch.
+   - Fetches and applies promo code to user's cart.
 
 ## Requirements
 
-- If you don’t have one, [create a Shopify partner account](https://partners.shopify.com/signup).
-- If you don’t have one, [create a Development store](https://help.shopify.com/en/partners/dashboard/development-stores#create-a-development-store) where you can install and test your app.
-- In the Partner dashboard, [create a new app](https://help.shopify.com/en/api/tools/partner-dashboard/your-apps#create-a-new-app). You’ll need this app’s API credentials during the setup process.
-- Download `NGROK` - is a free service that makes it easy to host your app in development. [Sign up for NGROK](https://ngrok.com/signup).
+- [Create a Shopify partner account](https://partners.shopify.com/signup) if you don’t have one.
+- [Create a Development store](https://help.shopify.com/en/partners/dashboard/development-stores#create-a-development-store) for app installation and testing.
+- In the Partner dashboard, [create a new app](https://help.shopify.com/en/api/tools/partner-dashboard/your-apps#create-a-new-app) and obtain API credentials.
+- [Sign up for NGROK](https://ngrok.com/signup) to host your app in development.
 
-## Development
+## Development Steps
 
-- Clone the project and run `npm install`
-- Create `.env` from `.env.example`
-- Add `SHOPIFY_API_KEY=<your API key>` from your Shopify App settings
-- Add `SHOPIFY_API_SECRET=<your API secret>`
-- Add `SHOP=<your shop>.myshopify.com`
-- `SCOPES` will be updated, for now just leave them as in the example
-- Start NGROK and replace `HOST` with your `NGROK URL`
+1. Clone the project and run `npm install`.
+2. Create `.env` from `.env.example`.
+3. Add `SHOPIFY_API_KEY=<your API key>` from your Shopify App settings.
+4. Add `SHOPIFY_API_SECRET=<your API secret>`.
+5. Add `SHOP=<your shop>.myshopify.com`.
+6. Leave `SCOPES` as in the example for now.
+7. Start NGROK and replace `HOST` with your `NGROK URL`.
 
-In your Shopify App settings:
+### Shopify App Settings
 
-- Set `App URL` to `NGROK URL`
-- Set `Allowed redirection URL(s)` to `<NGROK URL>/auth/callback`, for example: https://1231231.ngrok.io/auth/callback*
+- Set `App URL` to `NGROK URL`.
+- Set `Allowed redirection URL(s)` to `<NGROK URL>/auth/callback` (e.g., https://1231231.ngrok.io/auth/callback).
 
-> _You will need to update it every time you change `NGROK URL`_
+> _Update `NGROK URL` every time it changes._
 
-- `npm run dev`
-- Click `Select store` under `Test your app` in Shopify App settings
-- This should prompt you to install the app in your development store and open it in an admin dashboard. Common error is `The redirect URI is not whitelisted`, in that case you need to update `NGROK URL` in `Allowed redirection URL(s)`
+8. Run `npm run dev`.
+9. Click `Select store` under `Test your app` in Shopify App settings.
+10. Install the app in your development store and open it in the admin dashboard.
+
+> _Common error: `The redirect URI is not whitelisted`. Update `NGROK URL` in `Allowed redirection URL(s)`._
 
 ## Theme App Extension
 
-Example of a theme app extension: https://github.com/Shopify/theme-extension-getting-started
+Example: [Theme App Extension](https://github.com/Shopify/theme-extension-getting-started)
 
-- `cd theme-app-extension` and `shopify extension register`, choose `THEME_APP_EXTENSION` type
-- `npm run create-extension-js-bundle` to bundle the `crypto-wallet.js` file and put it into `theme-app-extension/assets` folder
-- `shopify extension push` and follow the instructions to install extension on the shopify theme or look at the Demo: https://www.loom.com/share/9c21c12fc567417e9f3e6e910b65f874
-- My demo shopify page: https://sergey-metamask-test.myshopify.com, store password: `rubado`
+1. Navigate to `theme-app-extension` and run `shopify extension register`, choose `THEME_APP_EXTENSION` type.
+2. Run `npm run create-extension-js-bundle` to bundle `crypto-wallet.js` and place it in `theme-app-extension/assets`.
+3. Run `shopify extension push` and follow instructions to install the extension on the Shopify theme.
 
-WIP:
-https://www.loom.com/share/9cb9caccd1494387937ae0ce6b614d66
+Demo: [Loom Video](https://www.loom.com/share/9c21c12fc567417e9f3e6e910b65f874)
+
+Demo Shopify Page: [sergey-metamask-test.myshopify.com](https://sergey-metamask-test.myshopify.com), store password: `rubado`.
+
+WIP: [Loom Video](https://www.loom.com/share/9cb9caccd1494387937ae
